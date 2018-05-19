@@ -10,7 +10,7 @@ do
     if [[ "$status" == "200"  ]];
     then
         data=$(curl https://carmel.instructure.com/eportfolios/$i 2>/dev/null)
-        name=$(echo $data | sed -re 's;(.*?)<span id="section-tabs-header-subtitle" class="ellipsis">([A-Za-z ]*?)</span>(.*?);\2;g')
+        name=$(echo $data | sed -re 's;(.*?)<span id="section-tabs-header-subtitle" class="ellipsis">([^<]*?)</span>(.*?);\2;g')
         echo -e "ID $i Found, Name: $name\t"
     fi
     # TODO: keep incremeting i until a 404?
