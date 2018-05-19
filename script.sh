@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for i in $(seq 1 500);
+for i in $(seq 1 1000);
 do
     echo -ne "Trying $i...\t\r"
 
@@ -15,3 +15,5 @@ do
     fi
     # TODO: keep incremeting i until a 404?
 done
+
+# TODO: dump to file
