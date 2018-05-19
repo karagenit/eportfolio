@@ -2,11 +2,12 @@
 
 for i in $(seq 1 500);
 do
+    echo -ne "Trying $i...\t\r"
     data=$(curl https://carmel.instructure.com/eportfolios/$i -I 2>/dev/null)
     status=$(echo $data | grep Status | cut -d$' ' -f2)
     if [[ "$status" == "200"  ]];
     then
-        echo "ID $i Found!"
+        echo -e "ID $i Found!\t"
     fi
     # TODO: keep incremeting i until a 404?
 done
